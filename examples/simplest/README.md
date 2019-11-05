@@ -6,17 +6,19 @@ browser js code (thrift.js)
 Example tested and confirmed to work on Chrome.
 
 Build steps:
-
- npm install
- sh -x build.sh
- ./node_modules/rollup/dist/bin/rollup -c
+```
+  npm install
+  sh -x build.sh
+  ./node_modules/rollup/dist/bin/rollup -c
+```
 
 to start server:
-
+```
  python run_backend.py
- 
+``` 
 to test server:
-
+```
  python run_backend.py test
- 
+```
+
 Point chrome browser to index.html. Button REQ will send XmlHTTPRequest to python server.
