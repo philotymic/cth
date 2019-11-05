@@ -1,3 +1,6 @@
+// modified version of
+// https://github.com/apache/thrift/blob/master/lib/js/src/thrift.js
+//
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements. See the NOTICE file
