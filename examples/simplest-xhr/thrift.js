@@ -1,3 +1,6 @@
+// modified version of
+// https://github.com/apache/thrift/blob/master/lib/js/src/thrift.js
+//
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements. See the NOTICE file
@@ -382,10 +385,10 @@ Thrift.TXHRTransport.prototype = {
             xreq.setRequestHeader(prop, self.customHeaders[prop]);
         });
 
-        if (xreq.setRequestHeader) {
-            xreq.setRequestHeader('Accept', 'application/vnd.apache.thrift.json; charset=utf-8');
-            xreq.setRequestHeader('Content-Type', 'application/vnd.apache.thrift.json; charset=utf-8');
-        }
+        //if (xreq.setRequestHeader) {
+        //    xreq.setRequestHeader('Accept', 'application/vnd.apache.thrift.json; charset=utf-8');
+        //    xreq.setRequestHeader('Content-Type', 'application/vnd.apache.thrift.json; charset=utf-8');
+        //}
 
         xreq.send(this.send_buf);
         if (async && callback) {

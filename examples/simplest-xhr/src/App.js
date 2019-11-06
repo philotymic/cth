@@ -12,18 +12,17 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-	//let transport = new Thrift.TXHRTransport('http://localhost:9090', {'customHeaders': {}});
-	//debugger;
-	let transport = new Thrift.TWebSocketTransport('ws://localhost:8888/thrift');
-	//transport = Thrift.TTransport.TBufferedTransport(transport);
+	let transport = new Thrift.TXHRTransport('http://localhost:9090', {'customHeaders': {}});
+	//let transport = new Thrift.TWebSocketTransport('http://localhost:9090');
+	//transport = TTransport.TBufferedTransport(transport);
 	let protocol = new Thrift.TJSONProtocol(transport);
 	let client = new HelloClient(protocol);
 	transport.open();
 	client.sayHello().then((res) => {
 	    console.log("server said: ", res);
 	    this.setState({greeting: res, greeting2: 'got it'});
-	    transport.close();
 	});
+	transport.close(); // this is a problem, it works only because sayHello is quick
     }
 
     onClickClear() {
@@ -31,8 +30,8 @@ class App extends React.Component {
     }
 
     onClickReq() {
-	//let transport = new Thrift.TXHRTransport('http://localhost:9090', {'customHeaders': {}});
-	let transport = new Thrift.TWebSocketTransport('ws://localhost:8888/thrift');
+	let transport = new Thrift.TXHRTransport('http://localhost:9090', {'customHeaders': {}});
+	//let transport = new Thrift.TWebSocketTransport('http://localhost:9090');
 	//transport = TTransport.TBufferedTransport(transport);
 	let protocol = new Thrift.TJSONProtocol(transport);
 	let client = new HelloClient(protocol);
@@ -40,8 +39,8 @@ class App extends React.Component {
 	client.sayHello().then((res) => {
 	    console.log("server said: ", res);
 	    this.setState({greeting: res, greeting2: 'got it again'});
-	    transport.close();
 	});
+	transport.close(); // this is a problem, it works only because sayHello is quick
     }	
     
     render() {
