@@ -13,6 +13,7 @@ class App extends React.Component {
 	this.state = {greeting: 'none', greeting2: '--'};
 	this.onClickClear = this.onClickClear.bind(this);
 	this.onClickReq = this.onClickReq.bind(this);
+	this.close_ws = this.close_ws.bind(this);
     }
 
     componentDidMount() {
@@ -33,6 +34,11 @@ class App extends React.Component {
 	    this.setState({greeting: res, greeting2: 'got it again'});
 	});
     }	
+
+    close_ws() {
+	this.transport.close();
+	console.log("ws closed");
+    }
     
     render() {
 	return (<div>
@@ -41,6 +47,7 @@ class App extends React.Component {
 		<h2>{this.state.greeting2}</h2>
 		<button onClick={this.onClickClear}>CLEAR</button>
 		<button onClick={this.onClickReq}>REQ</button>
+		<button onClick={this.close_ws}>CLOSE</button>
 		</div>);
     }
 };
