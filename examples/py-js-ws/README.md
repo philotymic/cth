@@ -12,11 +12,11 @@ Build steps:
 
 to start server:
 ```
- python run_backend.py
+ python run-ws-backend.py
 ``` 
 to test server:
 ```
- python run_backend.py test
+ python run-ws-backend.py test
 ```
 
 Point chrome browser to index.html. Button REQ will send websocket request to python server.
