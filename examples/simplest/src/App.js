@@ -6,23 +6,20 @@ import React from 'react';
 class App extends React.Component {
     constructor(props) {
 	super(props);
+	this.transport = new Thrift.TWebSocketTransport('ws://localhost:8888/thrift');
+	this.protocol = new Thrift.TJSONProtocol(this.transport);
+	this.client = new HelloClient(this.protocol);
+	
 	this.state = {greeting: 'none', greeting2: '--'};
 	this.onClickClear = this.onClickClear.bind(this);
 	this.onClickReq = this.onClickReq.bind(this);
     }
 
     componentDidMount() {
-	//let transport = new Thrift.TXHRTransport('http://localhost:9090', {'customHeaders': {}});
-	//debugger;
-	let transport = new Thrift.TWebSocketTransport('ws://localhost:8888/thrift');
-	//transport = Thrift.TTransport.TBufferedTransport(transport);
-	let protocol = new Thrift.TJSONProtocol(transport);
-	let client = new HelloClient(protocol);
-	transport.open();
-	client.sayHello().then((res) => {
+	this.transport.open();
+	this.client.sayHello().then((res) => {
 	    console.log("server said: ", res);
 	    this.setState({greeting: res, greeting2: 'got it'});
-	    transport.close();
 	});
     }
 
@@ -31,16 +28,9 @@ class App extends React.Component {
     }
 
     onClickReq() {
-	//let transport = new Thrift.TXHRTransport('http://localhost:9090', {'customHeaders': {}});
-	let transport = new Thrift.TWebSocketTransport('ws://localhost:8888/thrift');
-	//transport = TTransport.TBufferedTransport(transport);
-	let protocol = new Thrift.TJSONProtocol(transport);
-	let client = new HelloClient(protocol);
-	transport.open();
-	client.sayHello().then((res) => {
+	this.client.sayHello().then((res) => {
 	    console.log("server said: ", res);
 	    this.setState({greeting: res, greeting2: 'got it again'});
-	    transport.close();
 	});
     }	
     
