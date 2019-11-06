@@ -1,7 +1,14 @@
-Working example of how to use thrift XmlHTTPRequest transport.
+This is working example of how to use thrift XmlHTTPRequest transport.
+
+Those links were useful when implementing this example:
+
+- https://stackoverflow.com/questions/53616970/apache-thrift-python-server-with-javascript-client
+- https://stackoverflow.com/questions/16299971/example-apache-thrift-service-which-uses-https-in-python
+
 XmlHTTPRequest-based code in apache thrift look abandoned. I had
 to make some changes in both python (my_thttpserver.py) and 
 browser js code (my_thrift.js)
+
 
 Example tested and confirmed to work on Chrome.
 
