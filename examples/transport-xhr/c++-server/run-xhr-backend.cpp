@@ -37,6 +37,8 @@ public:
 };
 
 /*
+  this is example code from thrift/tutorial/cpp/CppServer.cpp
+
   CalculatorIfFactory is code generated.
   CalculatorCloneFactory is useful for getting access to the server side of the
   transport.  It is also useful for making per-connection state.  Without this
