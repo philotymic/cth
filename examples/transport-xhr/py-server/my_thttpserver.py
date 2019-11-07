@@ -24,6 +24,10 @@ class ResponseException(Exception):
         self.handler = handler
 
 class RequestHander(BaseHTTPServer.BaseHTTPRequestHandler):
+    def parse_request(self):
+        #ipdb.set_trace()
+        return BaseHTTPServer.BaseHTTPRequestHandler.parse_request(self)
+        
     def do_POST(self):
         #ipdb.set_trace()
         # Don't care about the request path.
