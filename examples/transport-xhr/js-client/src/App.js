@@ -21,8 +21,8 @@ class App extends React.Component {
 	client.sayHello().then((res) => {
 	    console.log("server said: ", res);
 	    this.setState({greeting: res, greeting2: 'got it'});
+	    transport.close();
 	});
-	transport.close(); // this is a problem, it works only because sayHello is quick
     }
 
     onClickClear() {
@@ -39,8 +39,8 @@ class App extends React.Component {
 	client.sayHello().then((res) => {
 	    console.log("server said: ", res);
 	    this.setState({greeting: res, greeting2: 'got it again'});
+	    transport.close();
 	});
-	transport.close(); // this is a problem, it works only because sayHello is quick
     }	
     
     render() {
