@@ -1,33 +1,31 @@
 #include "mainwindow.h"
 #include <QCoreApplication>
-
-#include <thrift/transport/THttpClient.h>
-#include <thrift/protocol/TJSONProtocol.h>
-
-#include "gen-cpp/Hello.h"
-
-using namespace hello;
-using namespace std;
-using namespace apache::thrift::transport;
-using namespace apache::thrift::protocol;
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
   : QMainWindow(parent)
 {
+  this->transport = make_shared<THttpClient>("localhost", 9090, "/");
+  this->protocol = make_shared<TJSONProtocol>(transport);
+  this->hello_client = make_shared<HelloClient>(protocol);
+  this->transport->open();
+  
   m_button = new QPushButton("My Button", this);
   m_button->setGeometry(QRect(QPoint(10, 10), QSize(200, 50)));
   connect(m_button, SIGNAL (released()), this, SLOT (handleButton()));
 }
- 
+
+void MainWindow::closeEvent(QCloseEvent*)
+{
+  cout << "MainWindow::closeEvent" << endl;
+  this->transport->close();
+  cout << "transport closed" << endl;
+}
+
 void MainWindow::handleButton()
 {
-  auto transport = make_shared<THttpClient>("localhost", 9090, "/");
-  auto protocol = make_shared<TJSONProtocol>(transport);
-
-  HelloClient client(protocol);
-  transport->open();
-  std::string res; client.sayHello(res);
-  transport->close();
+  std::string res;
+  this->hello_client->sayHello(res);
   
   m_button->setText(res.c_str());  
   m_button->resize(100, 100);
