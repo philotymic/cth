@@ -1,4 +1,4 @@
-# cth = Chrome + Thrift
+# cth = Chrome + THrift
 
 cth is an attempt to build generic GUI app development framework. All GUI programming is done in JS client and everything else is done in server. Apache Thrift used to organize client-server communication.
 
