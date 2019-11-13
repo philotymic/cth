@@ -35,10 +35,10 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = qt-client1.0.0
-DISTDIR = /home/asmirnov/cmx/examples/transport-xhr/qt-client/.tmp/qt-client1.0.0
+DISTDIR = /home/asmirnov/cth/examples/transport-xhr/qt-client/.tmp/qt-client1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/usr/local/anaconda2/lib
-LIBS          = $(SUBLIBS) -L/usr/local/anaconda2/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread gen-cpp/libgen.a -L/usr/local/lib -lthrift
+LIBS          = $(SUBLIBS) -L/usr/local/anaconda2/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -765,7 +765,7 @@ moc_mainwindow.cpp: /usr/local/anaconda2/include/qt/QtWidgets/QMainWindow \
 		mainwindow.h \
 		moc_predefs.h \
 		/usr/local/anaconda2/bin/moc
-	/usr/local/anaconda2/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/local/anaconda2/mkspecs/linux-g++ -I/home/asmirnov/cmx/examples/transport-xhr/qt-client -I/home/asmirnov/cmx/examples/transport-xhr/qt-client -I/usr/local/anaconda2/include/qt -I/usr/local/anaconda2/include/qt/QtWidgets -I/usr/local/anaconda2/include/qt/QtGui -I/usr/local/anaconda2/include/qt/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+	/usr/local/anaconda2/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/local/anaconda2/mkspecs/linux-g++ -I/home/asmirnov/cth/examples/transport-xhr/qt-client -I/home/asmirnov/cth/examples/transport-xhr/qt-client -I/usr/local/anaconda2/include/qt -I/usr/local/anaconda2/include/qt/QtWidgets -I/usr/local/anaconda2/include/qt/QtGui -I/usr/local/anaconda2/include/qt/QtCore -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:

@@ -13,7 +13,7 @@ def main():
         "universal_access_from_file_urls_allowed": True
     }
     cef.Initialize()
-    url = "file:///home/asmirnov/cmx/examples/transport-xhr/js-client/index.html"
+    url = "file:///home/asmirnov/cth/examples/transport-xhr/js-client/index.html"
     browser = cef.CreateBrowserSync(url=url, window_title="Hello World!", settings=browser_settings)
     #ipdb.set_trace()
     cef.MessageLoop()
