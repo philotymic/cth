@@ -6,4 +6,4 @@ Examples are organized around IDL file Hello.thrift
 
 Thrift-supplied transports suitable for cth are XHR (XmlHTTPRequest) and WS (WebSocket). The Apache Thrift version I've found didn't have WS transport suitable for C++.
 
-see also project [czc](https://github.com/philotymic/czc). This is twin of [cth](https://github.com/philotymic/czc) where [ZeroC ICE](https://zeroc.com/) is used to connect Chrome/JS client and server written on python or C++.
+See also project [czc](https://github.com/philotymic/czc). This is twin of [cth](https://github.com/philotymic/czc) where [ZeroC ICE](https://zeroc.com/) is used to connect Chrome/JS client and server written on python or C++.
